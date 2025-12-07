@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1753351201
+Camera2D.gd::GDScript::-1::1753350134::0::1::::<>Camera2D<>::
+CharacterBody2D.gd::GDScript::-1::1753348808::0::1::::<>CharacterBody2D<>::
+Icon.gd::GDScript::-1::1753347625::0::1::::<>Node2D<>::
+Kai-sheet.gd::GDScript::-1::1753350134::0::1::::<>Sprite2D<>::
+Node2D.gd::GDScript::-1::1753343362::0::1::::<>Node2D<>::
+node_2d.tscn::PackedScene::8309618293984489298::1753350449::0::1::::<><>::uid://cdx0wx3h7eyes::::res://assets/Kai-Sheet.png<>res://CharacterBody2D.gd<>res://Kai-sheet.gd<>res://Camera2D.gd
+::res://assets/::1753351338
+Kai-Sheet-Sheet.png::CompressedTexture2D::2242693416065462483::1753351338::1753351340::1::::<><>::
+Kai-Sheet.png::CompressedTexture2D::5032447050581316218::1753343901::1753343907::1::::<><>::
