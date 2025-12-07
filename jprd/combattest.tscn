@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxiyqxjyfxnrr"]
+
+[ext_resource type="PackedScene" uid="uid://bm1mb20pnbe01" path="res://key_listen.tscn" id="1_8cn1p"]
+[ext_resource type="PackedScene" uid="uid://diacysmc3hc50" path="res://key_fall.tscn" id="2_tbglw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="button_l" parent="." instance=ExtResource("1_8cn1p")]
+position = Vector2(-64, 160)
+frame = 4
+
+[node name="button_u" parent="." instance=ExtResource("1_8cn1p")]
+position = Vector2(-21, 160)
+frame = 5
+
+[node name="button_d" parent="." instance=ExtResource("1_8cn1p")]
+position = Vector2(21, 160)
+frame = 6
+
+[node name="button_r" parent="." instance=ExtResource("1_8cn1p")]
+position = Vector2(59, 160)
+frame = 7
+
+[node name="key_fall" parent="." instance=ExtResource("2_tbglw")]
+position = Vector2(-60, -198)
