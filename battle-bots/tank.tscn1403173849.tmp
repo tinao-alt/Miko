@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://7xsrfyb8r4id"]
+
+[ext_resource type="Script" uid="uid://dwyg4d10t0asi" path="res://tank.gd" id="1_mo174"]
+[ext_resource type="Texture2D" uid="uid://c0tjb662gj3u0" path="res://free-2d-battle-tank-game-assets/PNG/Hulls_Color_C/Hull_02.png" id="1_n8o8f"]
+[ext_resource type="Script" uid="uid://bbna55n1n1apv" path="res://gun.gd" id="3_lk6ub"]
+[ext_resource type="Texture2D" uid="uid://d1bmlgxt5ky2t" path="res://free-2d-battle-tank-game-assets/PNG/Weapon_Color_C/Gun_01.png" id="4_lk6ub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8o8f"]
+size = Vector2(144, 192)
+
+[node name="Tank" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+script = ExtResource("1_mo174")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_n8o8f")
+
+[node name="Tank Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_n8o8f")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(0, 24)
+script = ExtResource("3_lk6ub")
+
+[node name="Gun Sprite" type="Sprite2D" parent="Gun"]
+position = Vector2(0, -48)
+texture = ExtResource("4_lk6ub")

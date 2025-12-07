@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://baf1xatkw0m7f"]
+
+[ext_resource type="PackedScene" uid="uid://06e6atf0kips" path="res://tank1/tank.tscn" id="1_4t7g4"]
+[ext_resource type="PackedScene" uid="uid://dueedj5r8vdo2" path="res://tank2/tank.tscn" id="2_70rpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70rpv"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_4t7g4"]
+colors = PackedColorArray(0.06900001, 0.45194992, 0.69, 1, 0.19, 0.6894999, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_70rpv"]
+gradient = SubResource("Gradient_4t7g4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1f6"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_70rpv"]
+colors = PackedColorArray(0.37599772, 0.3060475, 0.13692051, 1, 0.5164689, 0.37388867, 0.1734668, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bx1f6"]
+gradient = SubResource("Gradient_70rpv")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+metadata/_snap_count = 13
+
+[node name="Battle Arena" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Holes" type="Node2D" parent="."]
+
+[node name="Hole" type="StaticBody2D" parent="Holes"]
+position = Vector2(1024, 128)
+collision_layer = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Holes/Hole"]
+shape = SubResource("RectangleShape2D_70rpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Holes/Hole"]
+position = Vector2(3.0517578e-05, -3.8146973e-06)
+scale = Vector2(2.000001, 1.9999999)
+texture = SubResource("GradientTexture2D_70rpv")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" type="StaticBody2D" parent="Walls"]
+position = Vector2(1104, 320)
+scale = Vector2(0.25, 1)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
+shape = SubResource("RectangleShape2D_bx1f6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall"]
+position = Vector2(-6.1035156e-05, -0.5)
+scale = Vector2(1.9999981, 2.015625)
+texture = SubResource("GradientTexture2D_bx1f6")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2(1024, 640)
+scale = Vector2(4, 1)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource("RectangleShape2D_bx1f6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall2"]
+position = Vector2(-6.1035156e-05, -0.5)
+scale = Vector2(1.9999981, 2.015625)
+texture = SubResource("GradientTexture2D_bx1f6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar1" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 56.0
+rounded = true
+
+[node name="HealthBar2" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 1416.0
+offset_top = 8.0
+offset_right = 1912.0
+offset_bottom = 56.0
+fill_mode = 1
+
+[node name="Tank" parent="." node_paths=PackedStringArray("_health_bar", "_enemy") instance=ExtResource("1_4t7g4")]
+position = Vector2(192, 384)
+_health_bar = NodePath("../CanvasLayer/HealthBar1")
+_enemy = NodePath("../Tank2")
+
+[node name="Tank2" parent="." node_paths=PackedStringArray("_health_bar", "_enemy") instance=ExtResource("2_70rpv")]
+position = Vector2(576, 320)
+_health_bar = NodePath("../CanvasLayer/HealthBar2")
+_enemy = NodePath("../Tank")

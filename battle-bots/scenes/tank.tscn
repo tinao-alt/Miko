@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://7xsrfyb8r4id"]
+
+[ext_resource type="Script" uid="uid://dwyg4d10t0asi" path="res://scripts/tank.gd" id="1_pkiss"]
+[ext_resource type="Texture2D" uid="uid://c0tjb662gj3u0" path="res://images/Hulls_Color_C/Hull_02.png" id="2_v0hlc"]
+[ext_resource type="Script" uid="uid://bbna55n1n1apv" path="res://scripts/gun.gd" id="3_in4ib"]
+[ext_resource type="Texture2D" uid="uid://d1bmlgxt5ky2t" path="res://images/Weapon_Color_C/Gun_01.png" id="4_8014g"]
+[ext_resource type="Texture2D" uid="uid://maokuxmm7dcy" path="res://images/Effects/Flash_A_01-Sheet.png" id="5_0i5jb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8o8f"]
+size = Vector2(144, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88dls"]
+atlas = ExtResource("5_0i5jb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snkmn"]
+atlas = ExtResource("5_0i5jb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngas3"]
+atlas = ExtResource("5_0i5jb")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8gis"]
+atlas = ExtResource("5_0i5jb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_066gl"]
+atlas = ExtResource("5_0i5jb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvp81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88dls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snkmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngas3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8gis")
+}],
+"loop": false,
+"name": &"flash",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_066gl")
+}],
+"loop": false,
+"name": &"reset",
+"speed": 5.0
+}]
+
+[node name="Tank" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_mask = 13
+motion_mode = 1
+script = ExtResource("1_pkiss")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_n8o8f")
+
+[node name="Tank Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_v0hlc")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(0, 24)
+script = ExtResource("3_in4ib")
+
+[node name="Gun Sprite" type="Sprite2D" parent="Gun"]
+position = Vector2(0, -48)
+texture = ExtResource("4_8014g")
+
+[node name="Cooldown Timer" type="Timer" parent="Gun"]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="Flash" type="AnimatedSprite2D" parent="Gun"]
+position = Vector2(0, -184)
+sprite_frames = SubResource("SpriteFrames_jvp81")
+animation = &"flash"
+autoplay = "reset"
+frame = 3
+frame_progress = 1.0

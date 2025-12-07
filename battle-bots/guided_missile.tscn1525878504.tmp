@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnxcscjbqtupj"]
+
+[ext_resource type="Texture2D" uid="uid://l3uv3x6i8hol" path="res://free-2d-battle-tank-game-assets/PNG/Effects/Sniper_Shell.png" id="1_36bth"]
+[ext_resource type="Script" uid="uid://b6shcoi5sy403" path="res://guided_missile.gd" id="1_t4pwb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mh3tg"]
+radius = 4.0
+height = 48.0
+
+[node name="Guided Missile" type="Area2D"]
+script = ExtResource("1_t4pwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_36bth")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mh3tg")

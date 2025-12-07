@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnxcscjbqtupj"]
+
+[ext_resource type="Script" uid="uid://b6shcoi5sy403" path="res://scripts/guided_missile.gd" id="1_2d171"]
+[ext_resource type="Texture2D" uid="uid://l3uv3x6i8hol" path="res://images/Effects/Sniper_Shell.png" id="2_4ft8g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mh3tg"]
+radius = 4.0
+height = 48.0
+
+[node name="Guided Missile" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_2d171")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mh3tg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("2_4ft8g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

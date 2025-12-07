@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27r2erngrr2o"]
+
+[ext_resource type="Script" uid="uid://bnpta4snqv7u5" path="res://scripts/high_explosive.gd" id="1_kqeq3"]
+[ext_resource type="Texture2D" uid="uid://ckwd6s5mrt5vu" path="res://images/Effects/Granade_Shell.png" id="2_1vbs8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_meucn"]
+radius = 8.0
+height = 32.0
+
+[node name="High Explosive" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_kqeq3")
+speed_mult = 0.9
+damage_mult = 1.3
+explosion_range_mult = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_meucn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("2_1vbs8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

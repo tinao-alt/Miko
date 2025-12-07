@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://7xsrfyb8r4id"]
+
+[ext_resource type="Script" uid="uid://d0vxmtu1ohyhp" path="res://bot.gd" id="1_mo174"]
+[ext_resource type="Texture2D" uid="uid://c0tjb662gj3u0" path="res://free-2d-battle-tank-game-assets/PNG/Hulls_Color_C/Hull_02.png" id="1_n8o8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8o8f"]
+size = Vector2(192, 144)
+
+[node name="Bot" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_mo174")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("1_n8o8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_n8o8f")
