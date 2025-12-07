@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdc1jnq1pk16v"]
+
+[ext_resource type="Texture2D" uid="uid://ger0afc04ndi" path="res://assets/tallgrass.png" id="1_kl2qe"]
+[ext_resource type="Shader" uid="uid://dr5v8bb6qhqpx" path="res://grass.gdshader" id="1_mw2ei"]
+[ext_resource type="Script" uid="uid://dd785icpi2kob" path="res://area_2d.gd" id="2_pmnf0"]
+
+[sub_resource type="GDScript" id="GDScript_2qnaq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw2ei"]
+size = Vector2(13, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qnaq"]
+size = Vector2(14, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qnaq"]
+shader = ExtResource("1_mw2ei")
+
+[node name="Grass" type="StaticBody2D"]
+script = SubResource("GDScript_2qnaq")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_pmnf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(0.5, -6.5)
+shape = SubResource("RectangleShape2D_mw2ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2qnaq")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2qnaq")
+texture = ExtResource("1_kl2qe")
+offset = Vector2(0, -8)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
