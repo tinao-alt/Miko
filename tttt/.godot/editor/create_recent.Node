@@ -1,0 +1,13 @@
+Sprite2D
+Camera2D
+AnimationPlayer
+CollisionShape2D
+CharacterBody2D
+StaticBody2D
+Node2D
+Area2D
+TileMapLayer
+TileMap
+SubViewport
+SubViewportContainer
+CollisionPolygon2D
