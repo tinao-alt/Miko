@@ -137,7 +137,7 @@ scale = Vector2(1.9999981, 2.015625)
 texture = SubResource("GradientTexture2D_bx1f6")
 
 [node name="Wall4" type="StaticBody2D" parent="Walls"]
-position = Vector2(495.99994, 512)
+position = Vector2(463.99994, 384)
 scale = Vector2(0.25, 1.5)
 collision_layer = 4
 collision_mask = 3
@@ -152,7 +152,7 @@ scale = Vector2(1.9999981, 2.015625)
 texture = SubResource("GradientTexture2D_bx1f6")
 
 [node name="Wall5" type="StaticBody2D" parent="Walls"]
-position = Vector2(416, 400)
+position = Vector2(384, 272)
 rotation = -1.5707964
 scale = Vector2(0.25, 1.5)
 collision_layer = 4
@@ -232,7 +232,7 @@ scale = Vector2(1.9999981, 2.015625)
 texture = SubResource("GradientTexture2D_bx1f6")
 
 [node name="Wall10" type="StaticBody2D" parent="Walls"]
-position = Vector2(208, 865)
+position = Vector2(208, 736)
 scale = Vector2(0.25, 1.5)
 collision_layer = 4
 collision_mask = 3
@@ -247,7 +247,7 @@ scale = Vector2(1.9999981, 2.015625)
 texture = SubResource("GradientTexture2D_bx1f6")
 
 [node name="Wall11" type="StaticBody2D" parent="Walls"]
-position = Vector2(464, 865)
+position = Vector2(464, 736)
 scale = Vector2(0.25, 1.5)
 collision_layer = 4
 collision_mask = 3
