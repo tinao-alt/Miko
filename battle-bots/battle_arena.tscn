@@ -1,4 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://baf1xatkw0m7f"]
+[gd_scene load_steps=10 format=3 uid="uid://baf1xatkw0m7f"]
+
+[ext_resource type="PackedScene" uid="uid://06e6atf0kips" path="res://tank1/tank.tscn" id="1_70rpv"]
+[ext_resource type="PackedScene" uid="uid://dueedj5r8vdo2" path="res://tank2/tank.tscn" id="2_bx1f6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70rpv"]
 
@@ -39,6 +42,7 @@ shape = SubResource("WorldBoundaryShape2D_70rpv")
 position = Vector2(960, 1080)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bariers/Bottom"]
+position = Vector2(24, -120)
 shape = SubResource("WorldBoundaryShape2D_70rpv")
 
 [node name="Top" type="StaticBody2D" parent="Bariers"]
@@ -275,3 +279,14 @@ offset_top = 8.0
 offset_right = 1912.0
 offset_bottom = 56.0
 fill_mode = 1
+
+[node name="Tank" parent="." node_paths=PackedStringArray("_health_bar", "_enemy") instance=ExtResource("1_70rpv")]
+position = Vector2(185, 180)
+_health_bar = NodePath("../CanvasLayer/HealthBar1")
+_enemy = NodePath("../Tank2")
+
+[node name="Tank2" parent="." node_paths=PackedStringArray("_health_bar", "_enemy") instance=ExtResource("2_bx1f6")]
+position = Vector2(1578, 813)
+player = 2
+_health_bar = NodePath("../CanvasLayer/HealthBar1")
+_enemy = NodePath("../Tank")
